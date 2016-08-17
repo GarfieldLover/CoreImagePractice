@@ -12,6 +12,7 @@
 		0AD1CEF11D5A15D20041F077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD1CEEF1D5A15D20041F077 /* Main.storyboard */; };
 		0AD1CEF31D5A15D20041F077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD1CEF21D5A15D20041F077 /* Assets.xcassets */; };
 		0AD1CEF61D5A15D20041F077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD1CEF41D5A15D20041F077 /* LaunchScreen.storyboard */; };
+		58885BA91D64695A00217389 /* PhotoFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58885BA81D64695A00217389 /* PhotoFilterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0AD1CEF21D5A15D20041F077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AD1CEF51D5A15D20041F077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD1CEF71D5A15D20041F077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58885BA81D64695A00217389 /* PhotoFilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				0AD1CEEB1D5A15D20041F077 /* AppDelegate.swift */,
 				0AD1CEED1D5A15D20041F077 /* ViewController.swift */,
+				58885BA81D64695A00217389 /* PhotoFilterCollectionViewCell.swift */,
 				0AD1CEEF1D5A15D20041F077 /* Main.storyboard */,
 				0AD1CEF21D5A15D20041F077 /* Assets.xcassets */,
 				0AD1CEF41D5A15D20041F077 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58885BA91D64695A00217389 /* PhotoFilterCollectionViewCell.swift in Sources */,
 				0AD1CEEE1D5A15D20041F077 /* ViewController.swift in Sources */,
 				0AD1CEEC1D5A15D20041F077 /* AppDelegate.swift in Sources */,
 			);
@@ -295,6 +299,7 @@
 				0AD1CEFC1D5A15D20041F077 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
