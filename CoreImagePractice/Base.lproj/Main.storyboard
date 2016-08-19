@@ -18,28 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cf2b18f05c0f52ed7917039861c2a1fb" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-5b-QWp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f224b1e033f646fedc03bd32bae00c87" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-5b-QWp">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="Yis-DW-0BG"/>
+                                    <constraint firstAttribute="height" constant="515" id="Yis-DW-0BG"/>
                                 </constraints>
                             </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R9n-E2-EZp">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94060435717228119" green="1" blue="0.97379970484210321" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="h5U-3S-C5f"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="vMx-9K-Mht">
-                                    <size key="itemSize" width="90" height="110"/>
+                                    <size key="itemSize" width="90" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoFilterCell" id="JI7-cq-K2a" customClass="PhotoFilterCollectionViewCell" customModule="CoreImagePractice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5" width="90" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
@@ -56,7 +56,7 @@
                             <constraint firstItem="Gjm-5b-QWp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DiV-oC-MC7"/>
                             <constraint firstAttribute="trailing" secondItem="Gjm-5b-QWp" secondAttribute="trailing" id="GXv-ID-CSO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="R9n-E2-EZp" secondAttribute="bottom" constant="34" id="JO5-Fk-Cds"/>
-                            <constraint firstItem="Gjm-5b-QWp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="110" id="QiO-gt-dpo"/>
+                            <constraint firstItem="Gjm-5b-QWp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QiO-gt-dpo"/>
                             <constraint firstItem="Gjm-5b-QWp" firstAttribute="leading" secondItem="R9n-E2-EZp" secondAttribute="leading" id="kbO-Pp-ajT"/>
                         </constraints>
                     </view>
@@ -71,6 +71,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cf2b18f05c0f52ed7917039861c2a1fb" width="1920" height="1200"/>
+        <image name="f224b1e033f646fedc03bd32bae00c87" width="378" height="500"/>
     </resources>
 </document>

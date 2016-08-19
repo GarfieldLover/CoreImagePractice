@@ -8,7 +8,6 @@
 
 import UIKit
 
-let kCellWidth: CGFloat = 90
 let kLabelHeight: CGFloat = 20
 
 class PhotoFilterCollectionViewCell: UICollectionViewCell {
@@ -19,11 +18,7 @@ class PhotoFilterCollectionViewCell: UICollectionViewCell {
         return CIContext(options: nil)
     }
     
-    var inputImage: UIImage! {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+    var inputImage: UIImage!
     
     var filter: CIFilter! {
         didSet {
@@ -35,8 +30,6 @@ class PhotoFilterCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
-
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,24 +41,20 @@ class PhotoFilterCollectionViewCell: UICollectionViewCell {
         addSubviews()
     }
 
-    //override func intrinsicContentSize() -> CGSize {
-    //    return CGSizeMake(kCellWidth, kCellWidth + kLabelHeight);
-    //}
-
     func addSubviews() {
         if (filteredImageView == nil) {
-            let rect: CGRect = CGRect.init(x: 0, y: 0, width: kCellWidth, height: kCellWidth)
+            let rect: CGRect = CGRect.init(x: 0, y: 0, width: 90, height: 100)
             filteredImageView = UIImageView.init(frame: rect)
             filteredImageView.layer.borderColor = tintColor.cgColor
             contentView.addSubview(filteredImageView)
         }
 
         if (filterNameLabel == nil) {
-            filterNameLabel = UILabel.init(frame: CGRect.init(x: 0, y: kCellWidth, width: kCellWidth, height: kLabelHeight))
+            filterNameLabel = UILabel.init(frame: CGRect.init(x: 0, y: 100, width: 90, height: kLabelHeight))
             filterNameLabel.textAlignment = .center
             filterNameLabel.textColor = UIColor.black
             filterNameLabel.highlightedTextColor = tintColor
-            filterNameLabel.font = UIFont.systemFont(ofSize: 14)
+            filterNameLabel.font = UIFont.systemFont(ofSize: 12)
             contentView.addSubview(filterNameLabel)
         }
     }
