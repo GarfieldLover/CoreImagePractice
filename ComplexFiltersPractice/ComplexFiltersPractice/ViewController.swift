@@ -104,6 +104,14 @@ class ViewController: UIViewController {
 
 private extension CIImage {
     
+    static let wwdcLogo: CIImage = {
+        
+        guard let url = Bundle.urlForResource("Logo_WWDC2016", withExtension: "png")
+            else { fatalError("missing watermark image") }
+        guard let image = CIImage(contentsOf: url)
+            else { fatalError("can't load watermark image") }
+        return image
+    }()
     
     func applyingWWDCDemoEffect(time: CGFloat = 0, scale: CGFloat = 1, shouldWatermark: Bool = true) -> CIImage {
         
