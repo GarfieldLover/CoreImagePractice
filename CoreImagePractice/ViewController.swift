@@ -37,18 +37,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        for descriptor in CIFilter.filterNames(inCategory: kCICategoryColorEffect) {
+        for descriptor in CIFilter.filterNames(inCategory: kCICategoryDistortionEffect) {
             filters.append(CIFilter(name: descriptor)!)
         }
         
-        print("kCICategoryDistortionEffect----",CIFilter.filterNames(inCategory: kCICategoryDistortionEffect))
-        print("kCICategoryGeometryAdjustment----",CIFilter.filterNames(inCategory: kCICategoryGeometryAdjustment))
+        print("kCICategoryDistortionEffect----",CIFilter.filterNames(inCategory: kCICategoryDistortionEffect))   //扭曲
+        print("kCICategoryGeometryAdjustment----",CIFilter.filterNames(inCategory: kCICategoryGeometryAdjustment))  //几何
         print("kCICategoryCompositeOperation----",CIFilter.filterNames(inCategory: kCICategoryCompositeOperation))
-        print("kCICategoryHalftoneEffect----",CIFilter.filterNames(inCategory: kCICategoryHalftoneEffect))
-        print("kCICategoryColorAdjustment----",CIFilter.filterNames(inCategory: kCICategoryColorAdjustment))
-        print("kCICategoryColorEffect----",CIFilter.filterNames(inCategory: kCICategoryColorEffect))
+        print("kCICategoryHalftoneEffect----",CIFilter.filterNames(inCategory: kCICategoryHalftoneEffect))    //半色调
+        print("kCICategoryColorAdjustment----",CIFilter.filterNames(inCategory: kCICategoryColorAdjustment)) //颜色调整
+        print("kCICategoryColorEffect----",CIFilter.filterNames(inCategory: kCICategoryColorEffect))    //色彩效果
         print("kCICategoryTransition----",CIFilter.filterNames(inCategory: kCICategoryTransition))
-        print("kCICategoryTileEffect----",CIFilter.filterNames(inCategory: kCICategoryTileEffect))
+        print("kCICategoryTileEffect----",CIFilter.filterNames(inCategory: kCICategoryTileEffect))    //瓷砖效果
         print("kCICategoryGenerator----",CIFilter.filterNames(inCategory: kCICategoryGenerator))
         print("kCICategoryReduction----",CIFilter.filterNames(inCategory: kCICategoryReduction))
         print("kCICategoryGradient----",CIFilter.filterNames(inCategory: kCICategoryGradient))
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         print("kCICategoryHighDynamicRange----",CIFilter.filterNames(inCategory: kCICategoryHighDynamicRange))
         print("kCICategoryBuiltIn----",CIFilter.filterNames(inCategory: kCICategoryBuiltIn))
         print("kCICategoryFilterGenerator----",CIFilter.filterNames(inCategory: kCICategoryFilterGenerator))
-
+        
     }
 
     // MARK: - Collection View
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         cell.inputImage = originalImage
         cell.filter = filters[indexPath.item]
-        cell.filterNameLabel.text = filters[indexPath.item].name
+        cell.filterNameLabel.text = CIFilter.localizedName(forFilterName: cell.filter.name)
         
         return cell
     }
@@ -84,13 +84,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let inputImage = CIImage(image: originalImage)!
 
-        let filter = filters[indexPath.item]
-
+        let filter: CIFilter = filters[indexPath.item]
         filter.setValue(inputImage, forKey: kCIInputImageKey)
         let outputImage =  filter.outputImage!
-        let attributes = filter.attributes
         let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
-        self.photoImageView.image = UIImage(cgImage: cgImage!)
+        if  cgImage != nil {
+            self.photoImageView.image = UIImage(cgImage: cgImage!)
+
+        }
+        
     
     }
 

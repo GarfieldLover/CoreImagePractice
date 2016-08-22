@@ -2,13 +2,11 @@
 //  PhotoFilterCollectionViewCell.swift
 //  Core Image Explorer
 //
-//  Created by Warren Moore on 1/12/15.
-//  Copyright (c) 2015 objc.io. All rights reserved.
-//
+
 
 import UIKit
 
-let kLabelHeight: CGFloat = 20
+let kLabelHeight: CGFloat = 40
 
 class PhotoFilterCollectionViewCell: UICollectionViewCell {
     var filterNameLabel: UILabel!
@@ -26,7 +24,10 @@ class PhotoFilterCollectionViewCell: UICollectionViewCell {
             filter.setValue(inputCIImage, forKey: kCIInputImageKey)
             if let outputImage = filter.outputImage {
                 let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
-                filteredImageView.image = UIImage(cgImage: cgImage!)
+                if  cgImage != nil {
+                    filteredImageView.image = UIImage(cgImage: cgImage!)
+
+                }
             }
         }
     }
@@ -55,6 +56,8 @@ class PhotoFilterCollectionViewCell: UICollectionViewCell {
             filterNameLabel.textColor = UIColor.black
             filterNameLabel.highlightedTextColor = tintColor
             filterNameLabel.font = UIFont.systemFont(ofSize: 12)
+            filterNameLabel.lineBreakMode = .byWordWrapping
+            filterNameLabel.numberOfLines = 0
             contentView.addSubview(filterNameLabel)
         }
     }
