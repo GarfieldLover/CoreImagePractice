@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var photoImageView: UIImageView!
-
+    
     var originalImage: UIImage {
         return UIImage(named: "f224b1e033f646fedc03bd32bae00c87")!
     }
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func replaceBackground() {
-        let cubeMap = CubeMap.createCubeMap(-100, maxHueAngle: 100)
+        let cubeMap = CubeMap.createCubeMap(0, maxHueAngle: 60)
         let data = NSData(bytesNoCopy: (cubeMap?.data)!, length: Int((cubeMap?.length)!), freeWhenDone: true)
         let colorCubeFilter = CIFilter(name: "CIColorCube")!
         
@@ -80,7 +81,7 @@ class ViewController: UIViewController {
         
         let sourceOverCompositingFilter = CIFilter(name: "CISourceOverCompositing")!
         sourceOverCompositingFilter.setValue(outputImage, forKey: kCIInputImageKey)
-        sourceOverCompositingFilter.setValue(CIImage(image: UIImage(named: "0e1629279e95cd5fbc3b698aed9dd1f9")!), forKey: kCIInputBackgroundImageKey)
+        sourceOverCompositingFilter.setValue(CIImage(image: UIImage(named: "Snip20160823_1")!), forKey: kCIInputBackgroundImageKey)
         
         outputImage = sourceOverCompositingFilter.outputImage!
         let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
@@ -104,9 +105,11 @@ class ViewController: UIViewController {
 
 private extension CIImage {
     
+    
+    
     static let wwdcLogo: CIImage = {
         
-        guard let url = Bundle.urlForResource("Logo_WWDC2016", withExtension: "png")
+        guard let url = Bundle.main.url(forResource: "Logo_WWDC2016", withExtension: "png")
             else { fatalError("missing watermark image") }
         guard let image = CIImage(contentsOf: url)
             else { fatalError("can't load watermark image") }
@@ -141,12 +144,12 @@ private extension CIImage {
         // Demo step 5: Add watermark if desired.
         if shouldWatermark {
             // Scale logo to rendering resolution and position it for compositing.
-            let logoWidth = ContentEditingController.wwdcLogo.extent.width
-            let logoScale = self.extent.width * 0.7 / logoWidth
-            let scaledLogo = ContentEditingController.wwdcLogo
+            let logoWidth = CIImage.wwdcLogo.extent.width
+            let logoScale = self.extent.width  / logoWidth
+            let scaledLogo = CIImage.wwdcLogo
                 .applying(CGAffineTransform(scaleX: logoScale, y: logoScale))
             let logo = scaledLogo
-                .applying(CGAffineTransform(translationX: self.extent.minX + (self.extent.width - scaledLogo.extent.width) / 2, y: self.extent.minY + scaledLogo.extent.height))
+                .applying(CGAffineTransform(translationX: self.extent.minX + (self.extent.width - scaledLogo.extent.width) / 2, y: self.extent.midY))
             // Composite logo over the main image.
             return logo.applyingFilter("CILinearDodgeBlendMode", withInputParameters: [kCIInputBackgroundImageKey: self])
         } else {

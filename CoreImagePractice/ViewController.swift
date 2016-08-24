@@ -43,25 +43,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         print("kCICategoryDistortionEffect----",CIFilter.filterNames(inCategory: kCICategoryDistortionEffect))   //扭曲
         print("kCICategoryGeometryAdjustment----",CIFilter.filterNames(inCategory: kCICategoryGeometryAdjustment))  //几何
-        print("kCICategoryCompositeOperation----",CIFilter.filterNames(inCategory: kCICategoryCompositeOperation))
+        print("kCICategoryCompositeOperation----",CIFilter.filterNames(inCategory: kCICategoryCompositeOperation))  //复合操作
         print("kCICategoryHalftoneEffect----",CIFilter.filterNames(inCategory: kCICategoryHalftoneEffect))    //半色调
         print("kCICategoryColorAdjustment----",CIFilter.filterNames(inCategory: kCICategoryColorAdjustment)) //颜色调整
         print("kCICategoryColorEffect----",CIFilter.filterNames(inCategory: kCICategoryColorEffect))    //色彩效果
-        print("kCICategoryTransition----",CIFilter.filterNames(inCategory: kCICategoryTransition))
+        print("kCICategoryTransition----",CIFilter.filterNames(inCategory: kCICategoryTransition))   //过渡
         print("kCICategoryTileEffect----",CIFilter.filterNames(inCategory: kCICategoryTileEffect))    //瓷砖效果
-        print("kCICategoryGenerator----",CIFilter.filterNames(inCategory: kCICategoryGenerator))
-        print("kCICategoryReduction----",CIFilter.filterNames(inCategory: kCICategoryReduction))
-        print("kCICategoryGradient----",CIFilter.filterNames(inCategory: kCICategoryGradient))
-        print("kCICategoryStylize----",CIFilter.filterNames(inCategory: kCICategoryStylize))
-        print("kCICategorySharpen----",CIFilter.filterNames(inCategory: kCICategorySharpen))
-        print("kCICategoryBlur----",CIFilter.filterNames(inCategory: kCICategoryBlur))
-        print("kCICategoryVideo----",CIFilter.filterNames(inCategory: kCICategoryVideo))
-        print("kCICategoryStillImage----",CIFilter.filterNames(inCategory: kCICategoryStillImage))
-        print("kCICategoryInterlaced----",CIFilter.filterNames(inCategory: kCICategoryInterlaced))
-        print("kCICategoryNonSquarePixels----",CIFilter.filterNames(inCategory: kCICategoryNonSquarePixels))
-        print("kCICategoryHighDynamicRange----",CIFilter.filterNames(inCategory: kCICategoryHighDynamicRange))
-        print("kCICategoryBuiltIn----",CIFilter.filterNames(inCategory: kCICategoryBuiltIn))
-        print("kCICategoryFilterGenerator----",CIFilter.filterNames(inCategory: kCICategoryFilterGenerator))
+        print("kCICategoryGenerator----",CIFilter.filterNames(inCategory: kCICategoryGenerator))  //发生器
+        print("kCICategoryReduction----",CIFilter.filterNames(inCategory: kCICategoryReduction))  //减少
+        print("kCICategoryGradient----",CIFilter.filterNames(inCategory: kCICategoryGradient))  //梯度
+        print("kCICategoryStylize----",CIFilter.filterNames(inCategory: kCICategoryStylize))  //风格化
+        print("kCICategorySharpen----",CIFilter.filterNames(inCategory: kCICategorySharpen))  //磨
+        print("kCICategoryBlur----",CIFilter.filterNames(inCategory: kCICategoryBlur))     //模糊
+        print("kCICategoryVideo----",CIFilter.filterNames(inCategory: kCICategoryVideo)) //动态影像
+        print("kCICategoryStillImage----",CIFilter.filterNames(inCategory: kCICategoryStillImage))  //静止图像
+        print("kCICategoryInterlaced----",CIFilter.filterNames(inCategory: kCICategoryInterlaced))  //交错
+        print("kCICategoryNonSquarePixels----",CIFilter.filterNames(inCategory: kCICategoryNonSquarePixels))  //非方形像素
+        print("kCICategoryHighDynamicRange----",CIFilter.filterNames(inCategory: kCICategoryHighDynamicRange))  //高动态范围
+        print("kCICategoryBuiltIn----",CIFilter.filterNames(inCategory: kCICategoryBuiltIn))  //固有
+        print("kCICategoryFilterGenerator----",CIFilter.filterNames(inCategory: kCICategoryFilterGenerator)) //过滤发生器
         
     }
 
