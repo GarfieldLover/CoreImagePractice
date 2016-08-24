@@ -12,17 +12,27 @@ class ViewController: UIViewController {
     
     @IBOutlet var photoImageView: UIImageView!
     
+    var colorControlsFilter: CIFilter!
+    
     var originalImage: UIImage {
         return UIImage(named: "f224b1e033f646fedc03bd32bae00c87")!
     }
     var context: CIContext! {
-        return CIContext(options: nil)
+        let testEAGLContext = EAGLContext.init(api: .openGLES3)
+        let testContext = CIContext.init(eaglContext: testEAGLContext!)
+        return testContext
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        colorControlsFilter = CIFilter(name: "CIColorControls")!
+
+        let inputImage = CIImage(image: originalImage)!
+        colorControlsFilter.setValue(inputImage, forKey: kCIInputImageKey)
+
     }
 
     @IBAction func oldFilmEffect() {
@@ -97,15 +107,37 @@ class ViewController: UIViewController {
         let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
         photoImageView.image = UIImage(cgImage: cgImage!)
     }
+    
+    @IBAction func changeStaturation(slider: UISlider) {
+        
+        colorControlsFilter.setValue(NSNumber.init(value: slider.value), forKey: kCIInputSaturationKey)
 
+        let outputImage = colorControlsFilter.outputImage!
+        let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
+        photoImageView.image = UIImage(cgImage: cgImage!)
+    }
     
+    @IBAction func changeBrightness(slider: UISlider) {
+        
+        colorControlsFilter.setValue(NSNumber.init(value: slider.value), forKey: kCIInputBrightnessKey)
+        
+        let outputImage = colorControlsFilter.outputImage!
+        let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
+        photoImageView.image = UIImage(cgImage: cgImage!)
+    }
     
- 
+    @IBAction func changeContrast(slider: UISlider) {
+        
+        colorControlsFilter.setValue(NSNumber.init(value: slider.value), forKey: kCIInputContrastKey)
+        
+        let outputImage = colorControlsFilter.outputImage!
+        let cgImage = context.createCGImage(outputImage, from: outputImage.extent)
+        photoImageView.image = UIImage(cgImage: cgImage!)
+    }
+    
 }
 
 private extension CIImage {
-    
-    
     
     static let wwdcLogo: CIImage = {
         
@@ -151,6 +183,7 @@ private extension CIImage {
             let logo = scaledLogo
                 .applying(CGAffineTransform(translationX: self.extent.minX + (self.extent.width - scaledLogo.extent.width) / 2, y: self.extent.midY))
             // Composite logo over the main image.
+            //线性减淡混合模式
             return logo.applyingFilter("CILinearDodgeBlendMode", withInputParameters: [kCIInputBackgroundImageKey: self])
         } else {
             return screened
