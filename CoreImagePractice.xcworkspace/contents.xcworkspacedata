@@ -7,4 +7,7 @@
    <FileRef
       location = "group:ComplexFiltersPractice/ComplexFiltersPractice.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:FaceDetectionPractice/FaceDetectionPractice.xcodeproj">
+   </FileRef>
 </Workspace>
