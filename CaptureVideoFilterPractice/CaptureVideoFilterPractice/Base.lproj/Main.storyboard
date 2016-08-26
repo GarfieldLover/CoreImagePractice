@@ -24,6 +24,9 @@
                                 <state key="normal" title="打开相机">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="openCameraWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBX-hN-ExT"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueA-NV-uBL">
                                 <frame key="frameInset" height="40" maxY="46"/>
@@ -35,6 +38,9 @@
                                         <state key="normal" title="反色">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="applyFilterWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="APY-Bz-5C7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAS-Dp-yv9">
                                         <frame key="frameInset" minX="80" minY="5" width="80" height="30"/>
@@ -42,6 +48,9 @@
                                         <state key="normal" title="单色">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="applyFilterWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rxE-vn-Y4n"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAh-rP-c7Q">
                                         <frame key="frameInset" minX="240" minY="5" width="80" height="30"/>
@@ -49,6 +58,9 @@
                                         <state key="normal" title="岁月">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="applyFilterWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8az-c4-6UX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QK3-Xh-cad">
                                         <frame key="frameInset" minX="160" minY="5" width="80" height="30"/>
@@ -56,6 +68,9 @@
                                         <state key="normal" title="怀旧">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="applyFilterWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tct-DG-c3e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
@@ -65,6 +80,9 @@
                                 <state key="normal" title="拍照">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="takePictureWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x6d-Vc-s97"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8g-Ye-kT4">
                                 <frame key="frameInset" minX="195" width="109" height="30" maxY="8"/>
@@ -72,13 +90,20 @@
                                 <state key="normal" title="开始录制">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="record" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dpx-6F-L50"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="filterButtonsContainer" destination="ueA-NV-uBL" id="1zq-Lw-QHM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="26" y="114"/>
         </scene>
     </scenes>
 </document>
