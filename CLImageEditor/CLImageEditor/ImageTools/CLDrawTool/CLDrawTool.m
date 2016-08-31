@@ -159,7 +159,7 @@ static NSString* const kCLDrawToolEraserIconName = @"eraserIconAssetsName";
     CGPoint endPoint = CGPointMake(size.width-5, 0);
     
     CGGradientRef gradientRef = CGGradientCreateWithColorComponents(colorSpaceRef, components, locations, count);
-    
+    //zk 线性渐变
     CGContextDrawLinearGradient(context, gradientRef, startPoint, endPoint, kCGGradientDrawsAfterEndLocation);
     
     UIImage *tmp = UIGraphicsGetImageFromCurrentImageContext();
@@ -184,10 +184,10 @@ static NSString* const kCLDrawToolEraserIconName = @"eraserIconAssetsName";
     
     CGFloat strRadius = 1;
     CGFloat endRadius = size.height/2 * 0.6;
-    
+    //zk 开始小，结束大
     CGPoint strPoint = CGPointMake(strRadius + 5, size.height/2 - 2);
     CGPoint endPoint = CGPointMake(size.width-endRadius - 1, strPoint.y);
-    
+    //zk 左半圈，右下，右半圈，左上
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddArc(path, NULL, strPoint.x, strPoint.y, strRadius, -M_PI/2, M_PI-M_PI/2, YES);
     CGPathAddLineToPoint(path, NULL, endPoint.x, endPoint.y + endRadius);
@@ -208,7 +208,7 @@ static NSString* const kCLDrawToolEraserIconName = @"eraserIconAssetsName";
     
     return tmp;
 }
-
+//zk Hue？
 - (UIColor*)colorForValue:(CGFloat)value
 {
     if(value<1/3.0){
@@ -303,7 +303,7 @@ static NSString* const kCLDrawToolEraserIconName = @"eraserIconAssetsName";
     }
     _prevDraggingPosition = currentDraggingPosition;
 }
-
+//zk 还是画直线
 -(void)drawLine:(CGPoint)from to:(CGPoint)to
 {
     CGSize size = _drawingView.frame.size;
@@ -319,7 +319,7 @@ static NSString* const kCLDrawToolEraserIconName = @"eraserIconAssetsName";
     CGContextSetLineWidth(context, strokeWidth);
     CGContextSetStrokeColorWithColor(context, strokeColor.CGColor);
     CGContextSetLineCap(context, kCGLineCapRound);
-    
+    //zk 清除
     if(!_eraserIcon.hidden){
         CGContextSetBlendMode(context, kCGBlendModeClear);
     }

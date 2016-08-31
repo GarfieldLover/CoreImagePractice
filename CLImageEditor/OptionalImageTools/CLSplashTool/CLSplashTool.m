@@ -56,7 +56,7 @@ static NSString* const kCLSplashToolEraserIconName = @"eraserIconAssetsName";
 }
 
 #pragma mark- implementation
-
+//zk  self.editor.imageView 原图   _drawingView 灰图
 - (void)setup
 {
     _originalImageSize = self.editor.imageView.image.size;
@@ -226,7 +226,9 @@ static NSString* const kCLSplashToolEraserIconName = @"eraserIconAssetsName";
     if(sender.state == UIGestureRecognizerStateBegan){
         _prevDraggingPosition = currentDraggingPosition;
     }
-    
+    //zk 给图，取图把白色地方透明 ，把黑色恢复图
+    //创建_maskImage，黑色底色 刮掉白色填充，擦除黑色填充
+    //maskedImage 替换颜色
     if(sender.state != UIGestureRecognizerStateEnded){
         [self drawLine:_prevDraggingPosition to:currentDraggingPosition];
         _drawingView.image = [_grayImage maskedImage:_maskImage];
@@ -253,7 +255,7 @@ static NSString* const kCLSplashToolEraserIconName = @"eraserIconAssetsName";
     
     CGContextSetLineWidth(context, strokeWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
-    
+    //变成白色
     if(!_eraserIcon.hidden){
         CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     }
@@ -269,7 +271,7 @@ static NSString* const kCLSplashToolEraserIconName = @"eraserIconAssetsName";
     
     UIGraphicsEndImageContext();
 }
-
+//zk 加mask图片
 - (UIImage*)buildImage
 {
     _grayImage = [self.editor.imageView.image grayScaleImage];

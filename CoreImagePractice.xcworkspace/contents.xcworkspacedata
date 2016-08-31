@@ -13,4 +13,7 @@
    <FileRef
       location = "group:CaptureVideoFilterPractice/CaptureVideoFilterPractice.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:CLImageEditor/Demo/CLImageEditorDemo/CLImageEditorDemo.xcodeproj">
+   </FileRef>
 </Workspace>
