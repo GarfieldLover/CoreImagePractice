@@ -172,7 +172,7 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
                      }
      ];
 }
-
+//zk，先画 image，_workingView 缩放成image大小，画在当前画布，再取出图
 - (UIImage*)buildImage:(UIImage*)image
 {
     UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
@@ -350,7 +350,7 @@ static NSString* const kCLStickerToolDeleteIconName = @"deleteIconAssetsName";
     }
     self.center = CGPointMake(_initialPoint.x + p.x, _initialPoint.y + p.y);
 }
-
+//zk  比例角度
 - (void)circleViewDidPan:(UIPanGestureRecognizer*)sender
 {
     CGPoint p = [sender translationInView:self.superview];
