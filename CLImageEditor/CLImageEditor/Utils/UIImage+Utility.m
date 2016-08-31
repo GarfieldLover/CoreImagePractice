@@ -179,7 +179,8 @@
 - (UIImage*)crop:(CGRect)rect
 {
     CGPoint origin = CGPointMake(-rect.origin.x, -rect.origin.y);
-    
+    //(CGRect) rect = (origin = (x = 376.96755617531136, y = 250.59750826341215), size = (width = 545.0902370566364, height = 726.78698274218152))
+    //zk 创建size大小画布，self从顶点画在画布里
     UIImage *img = nil;
     
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, self.scale);

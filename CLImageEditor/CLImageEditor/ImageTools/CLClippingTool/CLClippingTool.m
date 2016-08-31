@@ -159,7 +159,7 @@ static NSString* const kCLClippingToolRatioTitleFormat = @"titleFormat";
                          [_menuContainer removeFromSuperview];
                      }];
 }
-
+//zk 执行裁剪
 - (void)executeWithCompletionBlock:(void (^)(UIImage *, NSError *, NSDictionary *))completionBlock
 {
     CGFloat zoomScale = self.editor.imageView.width / self.editor.imageView.image.size.width;
@@ -171,6 +171,16 @@ static NSString* const kCLClippingToolRatioTitleFormat = @"titleFormat";
     
     UIImage *result = [self.editor.imageView.image crop:rct];
     completionBlock(result, nil, nil);
+    
+    //zk 画完了的吧
+    //UIImage *maskedImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    //UIBezierPath *aPath;
+    //CGRect croppedRect = aPath.bounds;
+    //CGImageRef imageRef = CGImageCreateWithImageInRect(maskedImage.CGImage, croppedRect);
+    
+    //maskedImage = [UIImage imageWithCGImage:imageRef];
+    
 }
 
 #pragma mark-
@@ -272,7 +282,7 @@ static NSString* const kCLClippingToolRatioTitleFormat = @"titleFormat";
 @end
 
 @implementation CLClippingCircle
-
+//zk 画4角
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -315,7 +325,7 @@ static NSString* const kCLClippingToolRatioTitleFormat = @"titleFormat";
     }
     return self;
 }
-
+//zk 先清除范围内的，再画
 - (void)drawInContext:(CGContextRef)context
 {
     CGRect rct = self.bounds;
@@ -489,7 +499,7 @@ static NSString* const kCLClippingToolRatioTitleFormat = @"titleFormat";
     [super setNeedsDisplay];
     [_gridLayer setNeedsDisplay];
 }
-
+//zk 拖拽4个角，改变clip大小
 - (void)panCircleView:(UIPanGestureRecognizer*)sender
 {
     CGPoint point = [sender locationInView:self];
