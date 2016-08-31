@@ -98,7 +98,9 @@
         CGContextTranslateCTM (bitmap, W, H);
         CGContextRotateCTM (bitmap, -M_PI);
     }
-    
+    //zk bitmap画在rect
+    //UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    //[image drawInRect:CGRectMake(0, 0, size.width, size.height)];
     CGContextDrawImage(bitmap, CGRectMake(0, 0, W, H), imageRef);
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
     UIImage* newImage = [UIImage imageWithCGImage:ref];

@@ -164,7 +164,7 @@ static NSString* const kCLToneCurveToolResetIconName = @"resetIconAssetsName";
         inProgress = NO;
     });
 }
-
+//zk 色调曲线, 调整 5个inputPoint0
 - (UIImage*)filteredImage:(UIImage*)image
 {
     CIImage *ciImage = [[CIImage alloc] initWithImage:image];
@@ -359,7 +359,7 @@ static NSString* const kCLToneCurveToolResetIconName = @"resetIconAssetsName";
 {
     return [_controlPoints[4] controlPoint];
 }
-
+//zk 设置 point 位置，设置centerPoint
 - (void)setControlPoint:(CGPoint)point atIndex:(NSInteger)index
 {
     if(index>=0 && index < _controlPoints.count){
@@ -427,7 +427,7 @@ static NSString* const kCLToneCurveToolResetIconName = @"resetIconAssetsName";
     [curve setLineWidth:1.0];
     
     const NSInteger L = 100;
-    
+    //ZK 100分，根据5个点位置创建spline，再根据100等分取CIVector，得出point
     [curve moveToPoint:[self convertControlPointToViewPoint:[CIVector vectorWithCGPoint:CGPointMake(0, self.point0.Y)]]];
     for(NSInteger i=0; i<L; ++i){
         double t = i / (double)(L-1);
