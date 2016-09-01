@@ -23,7 +23,7 @@
     }
     return self;
 }
-
+//zk 画圆
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();

@@ -33,7 +33,7 @@
         [self setNeedsDisplay];
     }
 }
-
+//字和边框画上去
 - (void)drawTextInRect:(CGRect)rect
 {
     CGSize shadowOffset = self.shadowOffset;

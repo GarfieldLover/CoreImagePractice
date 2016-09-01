@@ -179,7 +179,7 @@
 {
     [_hueCircle setColorAlpha:sender.value];
 }
-
+//zk 亮度
 - (UIImage*)saturationSliderBackground
 {
     CGAffineTransform transform = _saturationSlider.transform;
@@ -232,7 +232,7 @@
     
     return tmp;
 }
-
+//zk 透明度
 - (UIImage*)alphaSliderBackground
 {
     CGAffineTransform transform = _alphaSlider.transform;
@@ -277,7 +277,7 @@
     
     CGPoint startPoint = CGPointMake(5, 0);
     CGPoint endPoint = CGPointMake(_alphaSlider.frame.size.width-10, 0);
-    
+    //alpha 线性变换
     CGGradientRef gradientRef = CGGradientCreateWithColorComponents(colorSpaceRef, components, locations, count);
     
     CGContextDrawLinearGradient(context, gradientRef, startPoint, endPoint, kCGGradientDrawsAfterEndLocation);
@@ -309,7 +309,7 @@
 
 
 
-
+//zk 色彩圆圈
 @implementation _CLHueCircleView
 {
     CLCircleView *_circleView;
@@ -325,7 +325,7 @@
         
         _saturation = 1;
         _alpha = 1;
-        
+        //中间圆圈
         _circleView = [[CLCircleView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         _circleView.radius = 0.6;
         _circleView.borderColor = [UIColor colorWithWhite:0.2 alpha:1];
@@ -345,7 +345,7 @@
     [super setFrame:frame];
     [self setNeedsDisplay];
 }
-
+//zk 根据圆圈center 取hue
 - (CGFloat)hue
 {
     CGPoint point = _circleView.center;
@@ -417,7 +417,11 @@
 {
     return 0.80 * MIN(self.frame.size.width, self.frame.size.height)/2;
 }
-
+//zk 等分360画圆弧
+//HSV 色相、饱和度、明度  HSB，其中B即英语：Brightness。
+//色相（H）是色彩的基本属性，就是平常所说的颜色名称，如红色、黄色等。
+//饱和度（S）是指色彩的纯度，越高色彩越纯，低则逐渐变灰，取0-100%的数值。
+//明度（V），亮度（L），取0-100%。
 - (void)drawRect:(CGRect)rect
 {
     CGFloat R = self.circleRadius;
@@ -431,7 +435,7 @@
         CGContextStrokePath(context);
     }
 }
-
+//zk 中间圆圈颜色
 - (void)colorStateDidChange
 {
     _circleView.color = [UIColor colorWithHue:self.hue saturation:_saturation brightness:self.brightness alpha:_alpha];
