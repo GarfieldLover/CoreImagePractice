@@ -16,4 +16,19 @@
    <FileRef
       location = "group:CLImageEditor/Demo/CLImageEditorDemo/CLImageEditorDemo.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:GPUImage2-master/examples/iOS/FilterShowcase/FilterShowcase.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GPUImage2-master/examples/iOS/SimpleImageFilter/SimpleImageFilter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GPUImage2-master/examples/iOS/SimpleMovieFilter/SimpleMovieFilter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GPUImage2-master/examples/iOS/SimpleVideoFilter/SimpleVideoFilter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GPUImage2-master/examples/iOS/SimpleVideoRecorder/SimpleVideoRecorder.xcodeproj">
+   </FileRef>
 </Workspace>
